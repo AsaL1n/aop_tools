@@ -1,6 +1,4 @@
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
+import java.lang.reflect.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +40,15 @@ public class aop_tools {
         );
 
         return proxy;
+    }
+    public  static  Object aop_addInterface(Object object,Class[] clazz) throws InvocationTargetException, InstantiationException, IllegalAccessException, ClassNotFoundException, NoSuchMethodException {
+        AdvisedSupport advisedSupport = new AdvisedSupport();
+        advisedSupport.setTarget(object);
+        Constructor constructor = Class.forName("org.springframework.aop.framework.JdkDynamicAopProxy").getConstructor(AdvisedSupport.class);
+        constructor.setAccessible(true);
+        InvocationHandler handler = (InvocationHandler) constructor.newInstance(advisedSupport);
+        Object proxy = Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(), clazz, handler);
+        return  proxy;
     }
 
     public static Object aop_getter(Object object, String methodName, String paramName, Object paramValue) throws Exception {
